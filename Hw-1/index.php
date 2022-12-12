@@ -1,28 +1,22 @@
 <?php
 $name = readline("Как Вас зовут?");
 
-$task1 = readline("Какая задача стоит перед вами сегодня?");
-$time1 = readline("Сколько примерно времени эта задача займет?");
+$taskQuestion = "Какая задача стоит перед вами сегодня?";
+$timeQuestion = "Какая задача стоит перед вами сегодня?";
 
-$task2 = readline("Какая задача стоит перед вами сегодня?");
-$time2 = readline("Сколько примерно времени эта задача займет?");
+$task1 = readline($taskQuestion);
+$time1 = (int)readline($timeQuestion);
 
-$task3 = readline("Какая задача стоит перед вами сегодня?");
-$time3 = readline("Сколько примерно времени эта задача займет?");
+$task2 = readline($taskQuestion);
+$time2 = (int)readline($timeQuestion);
 
-$times = 0;
+$task3 = readline($taskQuestion);
+$time3 = (int)readline($timeQuestion);
 
-echo "$name, сегодня у вас запланировано 3 приоритетных задачи на день:\n";
-    for ($i = 1; $i <= 3; $i++) {
-        $task = "task$i";
-        $time = "time$i";
-        echo "- " . $$task . " (" . $$time . " ч" . ")\n";
-        $times += $$time;
-    }
-echo "Примерное время выполнения плана = $times ч";
+$times = $time1 + $time2 + $time3;
 
-
-
-
-
-
+echo "$name, сегодня у вас запланировано 3 приоритетных задачи на день:
+- {$task1} ({$time1}ч)
+- {$task2} ({$time2}ч)
+- {$task3} ({$time3}ч)
+Примерное время выполнения плана = {$times}ч";
