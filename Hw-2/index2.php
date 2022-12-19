@@ -12,35 +12,20 @@
 
 $name = readline("Как Вас зовут?");
 
-task:
-$numberTask = (int)readline("Количество задач, запланированных на день?");
-
-if ($numberTask < 0 || $numberTask > 10) {
-    echo "Введите корректное число\n";
-    goto task;
-}
-
-$taskQuestion = "Какая задача стоит перед вами сегодня?";
-$timeQuestion = "Сколько примерно времени эта задача займет?";
+do {
+    $numberTask = (int)readline("Количество задач, запланированных на день?");
+} while ($numberTask < 0 || $numberTask > 10);
 
 $resultTask = '';
-$resultTime = '';
 $times = 0;
 
 for ($i = 1; $i <= $numberTask; $i++) {
-    $task = readline($taskQuestion);
-    $time = (int)readline($timeQuestion);
-    $resultTask .= "-" . $task;
-    $resultTime .= "-" . $time;
+    $task = readline("Какая задача стоит перед вами сегодня?");
+    $time = (int)readline("Сколько примерно времени эта задача займет?");
+    $resultTask .= "- {$task} ({$time}ч)\n";;
     $times += $time;
 }
 
 echo "$name, сегодня у вас запланировано {$numberTask} приоритетных задачи на день:\n";
-
-for ($i = 1; $i <= $numberTask; $i++) {
-    $resultTasks = explode("-", $resultTask);
-    $resultTimes = explode("-", $resultTime);
-    echo "- {$resultTasks[$i]} ({$resultTimes[$i]}ч)\n";
-}
-
+echo $resultTask;
 echo "Примерное время выполнения плана = {$times}ч";

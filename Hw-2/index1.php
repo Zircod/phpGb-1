@@ -6,29 +6,49 @@
 поздравьте его и завершите выполнение скрипта.
 */
 
-repeatQuestion:
-$question = (int)readline("В каком году произошло крещение Руси? Варианты: 810, 990 или 740 год.");
-
-//вариант 1
-//if ($question == 990){
-//    echo "Поздравляю! Ответ верный.";
-//} elseif ($question == 810 || $question== 740) {
-//    echo "Ответ не верный.";
-//} else {
-//    goto repeatQuestion;
+// вариант 1
+//while (true) {
+//    $question = (int)readline("В каком году произошло крещение Руси? Варианты: 810, 990 или 740 год.");
+//
+//    if ($question == 990){
+//        echo "Поздравляю! Ответ верный.";
+//        break;
+//    }
+//    if ($question == 810 || $question == 740) {
+//        echo "Ответ не верный.";
+//        break;
+//    }
 //}
 
-//вариант 2
-switch (true) {
-    case $question == 810:
-    case $question == 740:
-        echo "Ответ не верный.";
-        break;
-    case $question == 990:
-        echo "Поздравляю! Ответ верный.";
-        break;
-    default:
-        goto repeatQuestion;
+
+//вариант 2 ?
+do {
+    $question = (int)readline("В каком году произошло крещение Руси? Варианты: 810, 988 или 740 год.");
+} while ($question != 810 && $question != 988 && $question !=740);
+
+if ($question == 988){
+    echo "Поздравляю! Ответ верный.";
 }
+if ($question == 810 || $question== 740) {
+    echo "Ответ не верный.";
+}
+
+//вариант 3
+//do {
+//    $question = (int)readline("В каком году произошло крещение Руси? Варианты: 810, 990 или 740 год.");
+//
+//    switch ($question) {
+//        case 810:
+//        case 740:
+//            echo "Ответ не верный.";
+//            break 2;
+//        case 990:
+//            echo "Поздравляю! Ответ верный.";
+//            break 2;
+//    }
+//} while (true);
+
+
+
 
 

@@ -4,17 +4,50 @@
 определяющий по введённому положительному числу палец, который соответствует ему по счёту. В случаях, если введено
 некорректное значение (меньше или равное нулю) повторяйте запрос ввода, пока не будет введено корректное число. */
 
-$number = (int)readline("Введите положительное число: ");
-$num = $number % 8;
+do {
+    $num = (int)readline("Введите положительное число: ");
+} while ($num <= 0);
 
-if ($num == 1) {
-    echo "1";
-} elseif ($num == 0 || $num == 2) {
-    echo "2";
-} elseif ($num == 3 || $num == 7) {
-    echo "3";
-} elseif ($num == 4 || $num == 6) {
-    echo "4";
-} elseif ($num == 5) {
-    echo "5";
+$num %= 8;
+
+//вариант 1
+//if ($num == 1) {
+//    echo "1";
+//} elseif ($num == 0 || $num == 2) {
+//    echo "2";
+//} elseif ($num == 3 || $num == 7) {
+//    echo "3";
+//} elseif ($num == 4 || $num == 6) {
+//    echo "4";
+//} elseif ($num == 5) {
+//    echo "5";
+//}
+
+//вариант 2
+//switch ($num) {
+//    case 1:
+//        echo "1";
+//        break;
+//    case 0:
+//    case 2:
+//        echo "2";
+//        break;
+//    case 3:
+//    case 7:
+//        echo "3";
+//        break;
+//    case 4:
+//    case 6:
+//        echo "4";
+//        break;
+//    default:
+//        echo "5";
+//}
+
+//вариант 3
+if ($num == 0) {
+    echo "Номер пальца - 2";
+} elseif ($num > 5) {
+    $num = 10 - $num;
 }
+echo "Номер пальца - $num";
