@@ -11,16 +11,17 @@
 $wishes = ['счастья', 'здоровья', 'настроения', 'воображения', 'терпения'];
 $epithets = ['бесконечного', 'бесподобного', 'космического', 'безудержного', 'восхитительного'];
 $rand = [];
+$number = 3;
 
 $name = readline('Введите имя именинника ');
 
-$keysRandWishes = array_rand($wishes, 3);
-$keysRandEpithets = array_rand($epithets, 3);
+$keysRandWishes = array_rand($wishes, $number);
+$keysRandEpithets = array_rand($epithets, $number);
 
-for ($i = 0; $i < 2; $i++) {
+for ($i = 0; $i < $number - 1; $i++) {
     $rand[] = $epithets[$keysRandEpithets[$i]] . ' ' . $wishes[$keysRandWishes[$i]];
 }
 
 echo "Дорогой $name, от всего сердца поздравляю тебя с днем рождения, желаю ";
 echo implode(", ",  $rand);
-echo " и {$epithets[$keysRandEpithets[2]]} {$wishes[$keysRandWishes[2]]}!";
+echo " и {$epithets[$keysRandEpithets[$number-1]]} {$wishes[$keysRandWishes[$number-1]]}!";

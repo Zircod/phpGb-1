@@ -10,7 +10,7 @@ $arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 $multiplication = [];
 
 foreach ($arr1 as $key => $value) {
-    $multiplication[] = $value * $arr2[$key];
+    $multiplication[] = $arr1[$key] * $arr2[$key];
 }
 print_r($multiplication);
 
