@@ -14,3 +14,10 @@ function fu (int $num) : string
 $arrNew = array_map('fu', $arr);
 
 print_r($arrNew);
+
+
+//2 вариант
+$number = fn($num) => $num & 1  ? 'нечетное' : 'четное';
+
+$arrNew2 = array_map($number, $arr);
+print_r($arrNew2);
